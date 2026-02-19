@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ipl Auction</title>
+        <style>
+            
+            body{
+                padding-top:80px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .head-section{
+                position:fixed;
+                top:0px;
+                left:0px;
+                right:0px;
+                height:90px;
+                display:flex;
+                align-items: center;
+                background: linear-gradient(90deg, #0d47a1, #1976d2);
+                box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+
+            }
+            .app-logo{
+                border-radius: 50%;
+                width:60px;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+            }
+            
+            .middle-section{
+                display:flex;
+                flex:1;
+                justify-content: center;
+                color: #ffcc00;
+            }
+            .right-section{
+                margin:10px;
+                color:white;
+
+            }
+            .details-page{
+                cursor: pointer;
+                padding: 5px 10px;       
+                transition: 0.3s; 
+            }
+            .display-grid{
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+                margin:80px 30px 10px 30px;
+                column-gap: 50px;
+                font-size: larger;
+                
+            }
+            .create-part{
+
+                display:flex;
+                height:350px;
+                
+                border-radius:20px;
+                box-shadow:5px 5px 10px rgba(0,0,0,0.2);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+
+            }
+            .participate-part{
+                display:flex;
+                height:350px;
+                box-shadow:5px 5px 10px;
+                border-radius:20px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow:5px 5px 10px rgba(0,0,0,0.2);
+            }
+            .create-auction-button{
+                background-color:#4CAF50;
+                padding:10px 20px 10px 20px ;
+                border:none;
+                color:white;
+                font-size: large;
+                font-weight: 700;
+                border-radius: 20px;
+                cursor:pointer;
+                margin-top:20px;
+            }
+            .participate-auction-button{
+                background-color:#FF9800;
+                padding:10px 20px 10px 20px ;
+                border:none;
+                color:white;
+                font-size: large;
+                font-weight: 700;
+                border-radius: 20px;
+                cursor:pointer;
+                margin-top:20px;
+            }
+            .participate-auction-button:hover{
+                background-color: #ff8000;
+            }
+            .create-auction-button:hover{
+                background-color: #097c0c;
+            }
+            .create-part:hover, .participate-part:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            }
+            
+            
+            
+
+        </style>
+    </head>
+    <body>
+        <div class="head-section">
+            <div class="left-section">
+                <img class="app-logo" src="images/app-logo.webp">
+            </div>
+            <div class="middle-section">
+                <h1>
+                    IPL AUCTION
+                </h1>
+            </div>
+            <div class="right-section">
+                <span class="details-page">About</span> | <span class="details-page">Help</span>
+            </div>
+        </div>
+
+        <div class="display-grid">
+            <div class="create-part">
+                <p class="heading-para">
+                    Start Auction
+                </p>
+                <p style="color:grey;">
+                    <span style="display:inline-block;width:8px;"></span>Create & Host <br>
+                    an Auction Room
+                </p>
+
+                <button class="create-auction-button" onclick="location.href='create.html'">
+                    Create Auction +
+                </button>
+            </div>
+            <div class="participate-part">
+                <p class="heading-para">
+                    Participate in Auction
+                </p>
+                
+                <p style="color:grey;">
+                    Enter Auction Code <br><span style="display:inline-block;width:38px;"></span> and join
+                </p>
+                
+                <a onclick="location.href='participate.html'">
+                    <button class="participate-auction-button">
+                        Participate
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>

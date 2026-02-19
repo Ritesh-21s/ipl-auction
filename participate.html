@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                padding-top:80px;
+                font-family: Arial, Helvetica, sans-serif;
+                position:relative;
+                /*height:100vh;*/
+            }
+            .head-section{
+                position:fixed;
+                top:0px;
+                left:0px;
+                right:0px;
+                height:90px;
+                display:flex;
+                align-items: center;
+                background: linear-gradient(90deg, #0d47a1, #1976d2);
+                box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+
+            }
+            .app-logo{
+                border-radius: 50%;
+                width:60px;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+            }
+            
+            .middle-section{
+                display:flex;
+                flex:1;
+                justify-content: center;
+                color: #ffcc00;
+            }
+            .right-section{
+                margin:10px;
+                color:white;
+
+            }
+            .details-page{
+                cursor: pointer;
+                padding: 5px 10px;       
+                transition: 0.3s; 
+            }
+            .home-page-link{
+                text-decoration: none;  
+                color: inherit;  
+            }
+
+            .auction-code-input-field{
+                font-size: x-large;
+                text-align: center;
+                border:none;
+                box-shadow:5px 5px 5px rgba(0 , 0 , 0, 0.1);
+                margin-top:30px;
+                
+                padding:10px 20px 10px 20px ;
+                border-radius:10px;
+            }
+            .result-div{
+                background-color:white;
+                margin-top:20px;
+                border-radius: 5px;
+                width:340px;
+                box-shadow:5px 5px 5px rgba(0 , 0 , 0, 0.1);
+               
+            }
+            .top-search{
+                padding:10px;
+                text-align: center;
+                font-size: larger;
+            }
+            .top-search:hover{
+                background-color: rgb(71, 187, 254);
+                color:white;
+                cursor:pointer;
+            }
+            .top-search:active{
+                background-color:rgb(23, 148, 221) ;
+            }
+
+
+        </style>
+        <title>Participate Auction</title>
+    </head>
+    <body>
+        <div class="head-section">
+            <div class="left-section">
+                <img class="app-logo" src="images/app-logo.webp">
+            </div>
+            <div class="middle-section">
+                <h1>
+                    AUCTION ROOM
+                </h1>
+            </div>
+            <div class="right-section">
+                <a class="home-page-link" href="index.html" ><span class="details-page">Home</span></a> | <span class="details-page">Help</span> | <span class="details-page"> About</span>
+            </div>
+        </div>
+
+        <div style="display:flex;
+        justify-content: center;
+        align-items: center;flex-direction: column;">
+            <input list="players" class="auction-code-input-field js-auction-code-input-field" placeholder="Enter Auction code">
+            <br>
+            <div class="result-div js-result-div">
+            </div>
+        </div>
+
+        
+        <script src="scripts/participate-script.js" type="module">
+
+        </script>
+        
+    </body>
+</html>

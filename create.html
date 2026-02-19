@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                padding-top:80px;
+                font-family: Arial, Helvetica, sans-serif;
+                position:relative;
+                /*height:100vh;*/
+            }
+            .head-section{
+                position:fixed;
+                top:0px;
+                left:0px;
+                right:0px;
+                height:90px;
+                display:flex;
+                align-items: center;
+                background: linear-gradient(90deg, #0d47a1, #1976d2);
+                box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+
+            }
+            .app-logo{
+                border-radius: 50%;
+                width:60px;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+            }
+            
+            .middle-section{
+                display:flex;
+                flex:1;
+                justify-content: center;
+                color: #ffcc00;
+            }
+            .right-section{
+                margin:10px;
+                color:white;
+
+            }
+            .details-page{
+                cursor: pointer;
+                padding: 5px 10px;       
+                transition: 0.3s; 
+            }
+            .home-page-link{
+                text-decoration: none;  
+                color: inherit;  
+            }
+
+            .content-div{
+                display:flex;
+                flex:1;
+                margin:50px;
+                min-height:100vh;
+                height:auto;
+                border-radius: 20px;
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+                flex-direction: column;
+                align-items: center;
+                padding-bottom:40px;
+                
+            }
+            .auction-code-input-field{
+                width: 270px;
+                padding: 8px;
+                font-size: medium;
+                border: 2px solid #ccc;
+                border-radius: 6px;
+                outline: none;
+                transition: border 0.3s;
+            }
+
+            .auction-code-input-field:focus{
+                border: 2px solid #1976d2;
+            }
+            .question-div{
+                display:inline-block;
+                font-weight:bold;
+                font-size:large;
+                margin-top:0px;
+            }
+            .question-div-outlet{
+                
+                margin-top:45px;
+                background-color:white;
+                padding:20px;
+                border-radius:10px;
+                width:70%;
+                height:fit-content;
+                border:2px solid black;
+                display:block;
+            }
+            .div-spacer{
+                margin-bottom:10px;
+                display:flex;
+                align-items: center;
+            }
+            .radio-styles{
+                 width: 20px;
+                height: 20px;
+                cursor: pointer;
+                accent-color: #1976d2;
+            }
+
+            .js-list-container{
+                position:absolute;
+                z-index:500;
+                background-color: white;
+                border:2px solid black;
+                
+
+            }
+            .exit-button{
+                position:absolute;
+                top:0px;
+                right: 0px;
+                background-color: rgb(255, 2, 2);
+                padding:5px 10px 5px 10px ;
+                
+                font-size: x-large ;
+                color:white;
+                border:none;
+                cursor:pointer;
+
+            }
+            .exit-button:hover{
+                background-color: rgb(222, 19, 19);
+            }
+            /*
+            .players-list{
+                float:left;
+                margin:20px;
+            }
+                */
+
+            .team{
+                display: inline-block;  
+                
+            }
+
+            .team-container{
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr; 
+                max-width:fit-content ;
+            }
+
+            @media(max-width:300px){
+                .team-container{
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            
+
+            @media(min-width:1000px){
+                .team-container{
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+            }
+
+            .edit-players-list{
+                list-style:none;
+            }
+
+            .save-button{
+                padding:10px 20px 10px 20px;
+                border:none;
+                background-color:rgb(6, 223, 6);
+                color:white;
+                border-radius: 4px;
+                font-size:larger;
+                font-weight: bold;
+                width:fit-content;
+                margin-bottom:20px;
+                cursor:pointer;
+
+            }
+
+            .save-button:hover{
+                background-color: rgb(3, 73, 3);
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .rtm-fields {
+                margin-top: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .go-to-button{
+                padding:10px 20px 10px 20px;
+                font-size:medium;
+                font-weight:bold;
+                color:white;
+                background-color:rgb(17, 205, 17);
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+
+            }
+            .go-to-button:hover{
+                background-color: rgb(19, 169, 19);
+            }
+
+            .warning-class{
+                color:red;
+                font-family: italic;
+                font-size: small;
+                margin-top: 5px;
+            }
+
+        </style>
+        <title>Create Auction</title>
+    </head>
+    <body>
+        <div class="head-section">
+            <div class="left-section">
+                <img class="app-logo" src="images/app-logo.webp">
+            </div>
+            <div class="middle-section">
+                <h1>
+                    CREATE AUCTION ROOM
+                </h1>
+            </div>
+            <div class="right-section">
+                <a class="home-page-link" href="index.html" ><span class="details-page">Home</span></a> | <span class="details-page">Help</span> | <span class="details-page"> About</span>
+            </div>
+        </div>
+
+        <div class="content-div js-content-div">
+            <div class="question-div-outlet">
+                <p class="question-div">
+                    Enter your auction code:
+                </p>
+                <br>
+                <input class="auction-code-input-field js-auction-code-input-field">
+
+                <div class="warning-class js-div-for-auction-code"></div>
+
+            </div>
+
+            <div class="question-div-outlet">
+                <p class="question-div">
+                    Enter the squad size:
+                </p>
+                <br>
+                <input type="number" min="0" step="1" class="auction-code-input-field js-squad-size">
+                <div class="warning-class js-div-for-squad-size"></div>
+            </div>
+
+            <!--
+            <div class="question-div-outlet">
+                <p class="question-div">
+                    Enter the minimum number of indian players:
+                </p>
+                <input type="number" min="0" step="1" class="auction-code-input-field js-minimun-indian-players">
+                <div class="js-div-for-indians warning-class"></div>
+            </div>
+            -->
+            
+
+            <div class="question-div-outlet">
+                <p class="question-div">
+                    Enter the maximum number of foriegn players:
+                </p>
+                <br>
+                <input type="number" min="0" step="1" class="auction-code-input-field js-maximum-foriegn-players">
+                <div class="js-div-for-foriegns warning-class"></div>  
+            </div>
+
+            <div class="question-div-outlet">
+                <p class="question-div">
+                    Enter the purse amount for each player:
+                </p>
+                <br>
+                <input type="number" min="0" step="1" class="auction-code-input-field js-purse-amount-input-field">
+                
+                <div class="js-div-for-purse-amount warning-class"></div> 
+            </div>
+
+            <div class="question-div-outlet js-retention-div">
+                <p class="question-div">
+                    Do you need to include Retention?
+                </p>
+                <div  style="display:flex;
+                align-items: center;">
+                    <span  style="display:flex;
+                align-items: center;"><input type="radio" name = "retention" class="radio-styles js-retention-yes-button js-retention-button"> Yes</span>
+                    <span  style="display:flex;
+                align-items: center;"><input type="radio" name="retention" class="radio-styles js-retention-no-button js-retention-button"> No</span>
+                </div> 
+                
+                <div class="js-div-for-retention warning-class"></div>
+            </div>
+
+            <div class="question-div-outlet" style="margin-bottom: 20px;">
+                <div class="div-spacer question-div">
+                    Use default players list : <input type="radio" class="radio-styles js-players-list" name="players-list"><br>
+                </div> 
+                <div class="div-spacer question-div">
+                    Edit existing players list : <input type="radio" class="radio-styles js-edit-players-button js-players-list" name="players-list"><br>
+                </div> 
+                <div class="div-spacer question-div">
+                    view players list : <input type="radio" class="radio-styles js-view-players-button" name="players-list"><br>
+                </div> 
+                <div class="js-div-for-players-list warning-class"></div>
+            </div>
+
+            <div>
+                <button class="go-to-button js-go-to-button" type="_blank">Go to auction room</button>
+            </div>
+
+            <div class="js-list-container"></div>
+
+
+        </div>
+
+        <script  type="module" src="/scripts/create-script.js"></script>
+    </body>
+</html>

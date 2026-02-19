@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                padding-top:80px;
+                font-family: Arial, Helvetica, sans-serif;
+                position:relative;
+                /*height:100vh;*/
+            }
+            .head-section{
+                position:fixed;
+                top:0px;
+                left:0px;
+                right:0px;
+                height:90px;
+                display:flex;
+                align-items: center;
+                background: linear-gradient(90deg, #0d47a1, #1976d2);
+                box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+
+            }
+            .app-logo{
+                border-radius: 50%;
+                width:60px;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+            }
+            
+            .middle-section{
+                display:flex;
+                flex:1;
+                justify-content: center;
+                color: #ffcc00;
+            }
+            .right-section{
+                margin:10px;
+                color:white;
+
+            }
+            .details-page{
+                cursor: pointer;
+                padding: 5px 10px;       
+                transition: 0.3s; 
+            }
+            .home-page-link{
+                text-decoration: none;  
+                color: inherit;  
+            }
+            .team-logo-div{
+                display:flex;
+                flex-wrap: wrap;
+                gap:30px;
+                width:fit-content;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+                padding: 30px;margin-right:210px;
+                
+            }
+            .team-logo{
+                width:100px;
+                border-radius:50%;
+                cursor: pointer;
+            }
+
+            .select-team-style{
+                border:4px solid rgb(13, 234, 13);
+            }
+            .current-players-list{
+                
+                position:fixed;
+                top:90px;
+                right:0px;
+                width:200px;
+                bottom:0px;
+                background-color: #f5f5f5;  /* very light gray */
+                color: #0d47a1; 
+                
+                /*justify-content: center;*/
+                
+            }
+
+            .join-button-styles{
+                background-color: rgb(13, 205, 13);
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 16px;
+                margin:0 auto;
+            }
+
+            .wait-message-box {
+                margin-top: 40px;
+                margin-right: 220px;   /* <-- pushes the box away from current players panel */
+                padding: 30px 40px;
+                background: linear-gradient(135deg, #0d47a1, #1976d2);
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                border-radius: 12px;
+                width: 350px;
+                box-shadow: 0px 6px 15px rgba(0,0,0,0.3);
+                animation: popUp 0.4s ease-out;
+            }
+
+            .wait-message-box span.team {
+                font-size: 28px;
+                color: #ffcc00;
+                font-weight: 900;
+            }
+
+            @keyframes popUp {
+                0% {
+                    transform: scale(0.7);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .start-auction-btn {
+                background: #f39c12;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                margin-left:30px;
+            }
+
+            .start-auction-btn:hover {
+                background: #d68910;
+            }
+
+
+        </style>
+        <title>Participate Auction</title>
+    </head>
+    <body>
+        <div class="head-section">
+            <div class="left-section">
+                <img class="app-logo" src="images/app-logo.webp">
+            </div>
+            <div class="middle-section">
+                <h1>
+                    AUCTION ROOM
+                </h1>
+            </div>
+            <div class="right-section">
+                <a class="home-page-link" href="index.html" ><span class="details-page">Home</span></a> | <span class="details-page">Help</span> | <span class="details-page"> About</span>
+            </div>
+        </div>
+
+
+        <div style="
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;"
+            class="js-content-div"
+        >
+            <fieldset class="team-logo-div js-team-logo-div">
+                <legend style="
+                        font-weight: bold;
+                        font-size: larger;
+                    ">
+                    Select your team
+                </legend>
+                <img src="images/chennai-super-kings-logo.png" class="team-logo js-team-logo csk" data-team-name="csk">
+                <img src="images/dehli-capitals-logo.jpg" class="team-logo js-team-logo dc" data-team-name="dc">
+                <img src="images/gujarat-titans-logo.jpg" class="team-logo js-team-logo gt" data-team-name="gt">
+                <img src="images/kolkata-knight-riders-logo.jpg" class="team-logo js-team-logo kkr" data-team-name="kkr">
+                <img src="images/lucknow-super-gaints-logo.png" class="team-logo js-team-logo lsg" data-team-name="lsg">
+                <img src="images/mumbi-indians-logo.jpg" class="team-logo js-team-logo mi" data-team-name="mi">
+                <img src="images/punjab-kings-logo.jpg" class="team-logo js-team-logo pbks" data-team-name="pbks">
+                <img src="images/rajasthan-royals-logo.jpg" class="team-logo js-team-logo rr" data-team-name="rr">
+                <img src="images/royal-challengers-bengaluru-logo.jpg" class="team-logo js-team-logo rcb" data-team-name="rcb">
+                <img src="images/Sunrisers-Hyderabad-logo.jpg" class="team-logo js-team-logo srh" data-team-name="srh"><br>
+            </fieldset>
+        </div>
+        
+        <div class="current-players-list js-current-players-list">
+            <p style="margin-left: 10px;">
+                Current Players
+            </p>
+
+            <ul class="js-players-list"> 
+                
+            </ul>
+        </div>
+        
+        
+
+        <script src="scripts/participate-select-team-room-script.js" type="module">
+
+        </script>
+        
+    </body>
+</html>

@@ -74,7 +74,7 @@ async function fetchPlayerImage(playerName , teamName) {
     const imgElement = document.querySelector(".js-player-photo");
 
     // Local image path (image name = player name)
-    const imagePath = `../CricketPlayers/${playerName}.jpg`;
+    const imagePath = `CricketPlayers/${encodeURIComponent(playerName)}.jpg`;
 
     const img = new Image();
     img.src = imagePath;
@@ -84,7 +84,7 @@ async function fetchPlayerImage(playerName , teamName) {
     };
 
     img.onerror = () => {
-        imgElement.src = "../images/default-image.jpg";
+        imgElement.src = "images/default-image.jpg";
     };
 
     const currentBid ={
